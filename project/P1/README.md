@@ -8,6 +8,14 @@ Suppose you are given two rods: one is 4 units in length and the other is 9 unit
 
 Your task is to describe a solution as a sequence of discrete steps and to record the length at the conclusion of each step. An example might look like this:
 
+1. Start at position 0
+2. Use the 9 unit rod to measure 9 to the right
+3. Mark the position
+4. Use the 5 unit rod to measure 5 to the left from the position marked in 3
+5. Mark the position
+6. You now have marked a 4 unit length from the start position
+
+
 ## Solution Specification
 
 Your solution to this problem outlined above must meet the following criteria. The exact steps you use complete this are up to you. Be creative!
