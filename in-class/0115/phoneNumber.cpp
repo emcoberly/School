@@ -26,10 +26,17 @@ int main() {
   cin >> phone;
 
   // Display information
+  cout << "You entered " << phone.length() << " digits. The first digit was  \""
+       << phone.at(0) << "\"." << endl;
 
   // Format the phone number
+  cout << "Formatted: (" << phone.substr(0, 3) << ") " << phone.substr(3, 3)
+       << "-" << phone.substr(6, 4) << endl;
 
   // Display the various parts
+  cout << "Area Code: (" << phone.substr(0, 3) << ")" << endl;
+  cout << "Local Number: " << phone.substr(3, 3) << "-" << phone.substr(6, 4)
+       << endl;
 
   return 0;
 }

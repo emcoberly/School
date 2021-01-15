@@ -6,7 +6,7 @@
  *                         that the formula is 2*pi*r*h + 2*pi*r^2
  *
  * File Name: errors.cpp
- * Name:      ?
+ * Name:      Eddie Coberly
  * Course:    CPTR 141
  * Date:      @@date@@
  *
@@ -17,12 +17,16 @@
 using namespace std;
 
 int main() {
-cout<<"Enter the cylindar radius: "         ;
-int a; cin>>a;
-     cout<<"Enter the cylindar height: "    ;
-int b;
-cin>>b; double c;
-                                 c = 3.14159;
-double d = 2*a*b*c+2*pow(2,a);
-cout >> "The surface area is: " << d << endl return 0; 
+  cout << "Enter the cylindar radius: ";
+  int a;
+  cin >> a;
+  cout << "Enter the cylindar height: ";
+  int b;
+  cin >> b;
+  double c;
+  c = 3.14159;
+  double d = 2 * a * b * c + 2 * pow(a, 2) * c;
+  cout << "The surface area is: " << d << endl;
+
+  return 0;
 }
