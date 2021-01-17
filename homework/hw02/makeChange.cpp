@@ -15,7 +15,7 @@ using namespace std;
 int main() {
 
   // define variables
-  double userCost, userPaid, userChange;
+  double userCost, userPaid;
   int centsCost, centsPaid, centsChange;
   int twentyDollar = 0, tenDollar = 0, fiveDollar = 0, oneDollar = 0;
   int quarter = 0, dime = 0, nickel = 0, penny = 0;
@@ -48,7 +48,7 @@ int main() {
   penny = centsChange % 2000 % 1000 % 500 % 100 % 25 % 10 % 5;
 
   // now display number of dollars and coins
-  cout << "\n Your change is:" << endl;
+  cout << "\nYour change is:" << endl;
   cout << "  - twenty-dollar bills: " << twentyDollar << endl;
   cout << "  - ten-dollar bills: " << tenDollar << endl;
   cout << "  - five-dollar bills: " << fiveDollar << endl;
