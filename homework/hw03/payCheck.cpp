@@ -34,7 +34,7 @@ int main() {
   const double HEALTH_CARE = 10.00;
   withholdings = SOCIAL_SECURITY + MEDICARE + FEDERAL_TAX + HEALTH_CARE;
   payCheck = pay - withholdings;
-  cout << "Your gross pay is: $" << fixed << setprecision(2) << pay << endl;
+  cout << "\nYour gross pay is: $" << fixed << setprecision(2) << pay << endl;
   cout << "The withholdings are: $" << fixed << setprecision(2) << withholdings
        << endl;
   cout << "So that your net pay is: $" << fixed << setprecision(2) << payCheck
