@@ -15,8 +15,8 @@
 using namespace std;
 
 int main() {
-  int dependents, hours;
-  double pay, withholdings, payCheck;
+  int dependents;
+  double hours, pay, withholdings, payCheck;
   cout << "Enter the number of hours worked: ";
   cin >> hours;
   cout << "Enter the number of dependents: ";
