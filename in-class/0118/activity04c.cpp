@@ -2,6 +2,7 @@
 using namespace std;
 
 int main() {
+  /*
   // ----------------------------------------- declare variables
   double floatOne,floatTwo;
   int integer = 35;  
@@ -14,4 +15,9 @@ int main() {
   floatTwo = static_cast<int>(floatOne);
   cout << "second number: " << floatOne << endl;
   cout << "after conversion: " << floatTwo << endl;
+  */
+
+  char university = 85;
+  char walla = 87;
+  cout << walla << walla << university << endl;
 }
