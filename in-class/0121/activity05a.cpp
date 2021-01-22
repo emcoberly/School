@@ -4,7 +4,7 @@ using namespace std;
 int main() {
 
   // variable for testing
-  int x = 4, y = 5, z = 4;
+  string x = "hello", y = "good-bye";
 
   // put your condition inside the "if( )" statement
   if (x > y) {

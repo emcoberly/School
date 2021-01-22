@@ -1,0 +1,40 @@
+Eddie Coberly
+Professor Thomsen
+CPTR 141
+22 January 2021
+
+
+How to achieve 7 using rods of lengths 4 and 9 units:
+
+1.	Start at position 0.
+2.	Use the 9-unit rod to measure 9 units to the right.
+3.	Mark the position.
+4.	Use the 4-unit rod to measure 4 units to the left.
+5.	Mark the position.
+6.	Repeat steps 2-5 two more times.
+7.	Use the 4-unit rod to measure 4 units to the left.
+8.	Mark the position.
+9.  Repeat steps 7 and 8 once.
+10.	You now have marked a 7-unit length from the start position.
+
+
+How to achieve 7 using rods of lengths 'm' and 'n' units:
+
+Assumptions:
+'m' and 'n' are coprime
+'m' < 'n'
+
+1.  Start at position 0.
+2.  Use the 'm'-unit rod to measure 'm' units to the right.
+3.  Mark the position.
+4.  If the mark is less than 7 units from the start:
+        (a) Use the 'm'-unit rod to measure 'm' units to the right.
+        (b) Mark the position.
+5.  If the mark is more than 7 units from the start:
+        (a) Use the 'n'-unit rod to measure 'n' units to the left.
+        (b) Mark the position.
+6.  Repeat steps 4 and 5 until one of the rods reaches exactly 7.
+7.  You now have marked a 7-unit length from the start position.
+
+
+***Special thanks to Professor Thomsen for the idea for the general solution.***
