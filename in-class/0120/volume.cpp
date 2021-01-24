@@ -1,6 +1,6 @@
 /*************************************************************************
  *
- * In-Class Exercise:  Compute the volumn of a right circular cylindar 
+ * In-Class Exercise:  Compute the volume of a right circular cylindar 
  *                     of a given radius and height
  * 
  * File Name: volume.cpp
