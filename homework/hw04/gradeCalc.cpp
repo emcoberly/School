@@ -53,9 +53,12 @@ int main() {
 
   // branching statements to produce output
   if (validTest && validHomework && validParticipation) {
-    if (finalGrade == 65) {
+    if (finalGrade == 65 && myTest >= 90) {
       cout << "You have an " << finalGrade
            << " in the class and do not need to take the final." << endl;
+    } else if (finalGrade == 65 && myTest < 90) {
+      cout << "You have an " << finalGrade
+           << " in the class and you must take the final." << endl;
     } else if (finalGrade == 70) {
       cout << "You have an " << finalGrade
            << " in the class and you must take the final." << endl;
