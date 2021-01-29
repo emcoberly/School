@@ -7,9 +7,9 @@ int main() {
   string name;
   cout << "Enter your name: ";
   cin >> name;
-  int x = 0;
-  while (x < 10) {
-    cout << name << endl;
+  int x = 1;
+  while (x < 24) {
+    cout << x << ". " << name << endl;
     x = x + 1;
   }
   cout << "Nice to meet you!" << endl;

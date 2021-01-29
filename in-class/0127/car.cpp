@@ -17,6 +17,22 @@ int main() {
   cout << "Enter car year: ";
   cin >> carYear;
 
+  cout << "Your car:\n";
+
+  if (carYear < 1967) {
+    cout << "Probably has few safety features.\n";
+  } else {
+    if (carYear > 1970) {
+      cout << "Probably has head rests." << endl;
+    }
+    if (carYear > 1991) {
+      cout << "Probably has anti-lock brakes." << endl;
+    }
+    if (carYear > 2001) {
+      cout << "Probably has airbags." << endl;
+    }
+  }
+
   /* NEW CODE GOES HERE */
 
   return 0;

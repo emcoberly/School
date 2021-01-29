@@ -41,11 +41,41 @@ int main() {
   // add your switch statement here to display the correct
   //   type of problem and compute the correct answer
 
-  /* CODE GOES HERE */
+  char operation = ' ';
+
+  switch(choice) {
+      case 1:
+        operation = '+';
+        correct = x + y;
+        cout << "Addition Problem" << endl;
+        break;
+      case 2:
+        operation = '-';
+        correct = x - y;
+        cout << "Subtraction Problem" << endl;
+        break;
+      case 3:
+        operation = 'x';
+        correct = x * y;
+        cout << "Multiplication Problem" << endl;
+        break;
+      default:
+        operation = ' ';
+        correct = 0;
+        cout << "Invalid Problem Type" << endl;
+  }
    
-  // check the answer and dsiplay result
+  // check the answer and display result
+  if(operation != ' ') {
+      cout << endl << setw(6) << x << endl;
+      cout << " " << operation << setw(4) << y << endl;
+      cout << "------" << endl;
+      cout << " = ";
+      cin >> ans;
+  }
+  cout << endl;
   if (ans == correct) {
-    cout << endl << "Congratulations! You got the right answer." << endl;
+    cout << "Congratulations! You got the right answer." << endl;
   } else {        
     cout << "The correct answer is: " << correct << endl;
   }   

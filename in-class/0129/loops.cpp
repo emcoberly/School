@@ -14,20 +14,26 @@ int main() {
   // define needed variables
   int counter = 0;
   int sum = 0;
+  int start;
   int limit;
 
   // prompt the user for the maximum
+  cout << "Enter a starting number: ";
+  cin >> start;
   cout << "How far should I count? ";
   cin >> limit;
 
   // use the while loop to count
-
-  /* YOUR CODE GOES HERE */
+  counter = start - 1;
+  do {
+      cout << ++counter << " ";
+      sum += counter;
+  } while(counter < limit);
    
   // print out the final sum
   cout << endl
        << endl
-       << "The sum of 1-" << limit << " is " << sum << "." << endl;
+       << "The sum of " << start << "-" << limit << " is " << sum << "." << endl;
 
   // finished!
   return 0;
