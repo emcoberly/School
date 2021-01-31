@@ -27,7 +27,8 @@ int main() {
 
   // Prompt User input
   cout << "\nThe computer has chosen and so must you." << endl;
-  cout << "0) Rock\n1) Paper\n2) Scissors\n3) Lizard\n4) Spock" << endl;
+  cout << "  0) Rock\n  1) Paper\n  2) Scissors\n  3) Lizard\n  4) Spock"
+       << endl;
 
   // Verify User chose appropriate number
   do {
