@@ -16,8 +16,8 @@ int main() {
 
   // define variables
   string userPass;
-  char passCheck, passCheck2;
-  int passIndex = 0, passIndex2 = 1;
+  char passCheck, passCheck2 = '\0';
+  int passIndex = 0;
   bool belowTen = true, missingDigit = true, missingLower = true,
        missingUpper = true, missingChar = true, isConsecutive = false;
 
@@ -40,8 +40,8 @@ int main() {
   // loop to check password characters
   do {
     passCheck = userPass.at(passIndex);
-    if (passCheck==passCheck2) {
-        isConsecutive = true;
+    if (passCheck == passCheck2) {
+      isConsecutive = true;
     }
     if (userPass.length() >= 10) {
       belowTen = false;
@@ -63,10 +63,11 @@ int main() {
   } while (passIndex < userPass.length());
 
   // display result
-  if(!(belowTen || missingDigit || missingLower || missingUpper || missingChar || isConsecutive)) {
-      cout << "Your password has been accepted." << endl;
+  if (!(belowTen || missingDigit || missingLower || missingUpper ||
+        missingChar || isConsecutive)) {
+    cout << "Your password has been accepted." << endl;
   } else {
-      cout << "Your password does not meet the above criteria." << endl;
+    cout << "Your password does not meet the above criteria." << endl;
   }
 
   // end the program
