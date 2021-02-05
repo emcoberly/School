@@ -28,8 +28,7 @@ int main() {
   }
   cout << endl;
   for (int k = 1; k <= numRow; ++k) {
-    cout << "   " << k << " "
-         << "|";
+    cout << setw(4) << k << " |";
     for (int l = 1; l <= numCol; ++l) {
       cout << setw(4) << k * l;
     }
