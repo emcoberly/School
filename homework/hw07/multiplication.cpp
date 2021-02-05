@@ -15,8 +15,13 @@ using namespace std;
 int main() {
 
   int numCol, numRow;
-  cout << "Enter desired number of columns and rows: ";
-  cin >> numCol >> numRow;
+  do {
+    cout << "Enter desired number of columns and rows: ";
+    cin >> numCol >> numRow;
+    if(numCol > 10 || numCol < 1 || numRow > 10 || numRow < 1) {
+        cout << "Please enter two integers in the range of 1-10 separated by a space." << endl;
+    }
+  } while(numCol > 10 || numCol < 1 || numRow > 10 || numRow < 1);
 
   cout << "   *  ";
   for (int i = 1; i <= numCol; ++i) {
