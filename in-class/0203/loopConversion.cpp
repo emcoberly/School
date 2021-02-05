@@ -13,25 +13,26 @@ int main() {
 
   // Convert the following for loop to a while loop
   int count = 0, product = 1;
-  for (int i = 1; i <= 4; i++) {
+  int i = 1;
+  while (i <= 4) {
     product *= i;
+    ++i;
     count++;
   }
   cout << "product: " << product << ", count: " << count << endl;
 
   // Convert the following while loop to a do-while loop
   int a = 0, sum = 0;
-  while (a != -1000) {
+  do {
     sum += a;
     a--;
-  }
+  } while (a != -1000);
   cout << "a: " << a << ", sum: " << sum << endl;
 
   // Convert the following while loop to a for loop
   int x = 100, total = 0;
-  while (x >= 75) {
+  for (x = 100; x >= 75; x--) {
     total += x;
-    x--;
   }
   cout << "x: " << x << ", total: " << total << endl << endl;
 
