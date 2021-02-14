@@ -10,7 +10,18 @@ void printArea(double radius){
         << radius << " is " << area << endl;
 }
 
+void printDiameter(double radius){
+    double diameter = 2.0 * radius;
+    cout << fixed << setprecision(2);
+    cout << "The diameter of a circle with radius " << radius << " is " << diameter << endl;
+}
+
 int main() {
-   printArea(3);
-   printArea(4.5);
+//    printArea(3);
+//    printArea(4.5);
+    double userRadius;
+    cout << "Enter the radius of a circle: ";
+    cin >> userRadius;
+    printArea(userRadius);
+    printDiameter(userRadius);
 }
