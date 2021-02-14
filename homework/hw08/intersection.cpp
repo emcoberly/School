@@ -24,13 +24,12 @@ int main() {
   // welcome message
   cout << "Welcome to the Intersection Calculator(TM)" << endl;
   cout << "==========================================" << endl;
-  cout << "Please enter two sets of lowercase alphabet characters." << endl
-       << endl;
+  cout << "Please enter two sets of lowercase alphabet characters." << endl;
   do {
     // get set one
     vector<char> userSet1 = {};
     setIndex = -1;
-    cout << "Set One (enter ! when done):" << endl;
+    cout << "\nSet One (enter ! when done):" << endl;
     cout << "----------------------------" << endl;
     do {
 
@@ -47,8 +46,7 @@ int main() {
           userSet1.pop_back();
           invalidElement = false;
         } else {
-          cout << "Error: Only lower case alphabet letters are allowed."
-               << endl;
+          cout << "Error: Only lower case alphbet letters are allowed." << endl;
         }
       }
 
@@ -74,8 +72,7 @@ int main() {
           userSet2.pop_back();
           invalidElement = false;
         } else {
-          cout << "Error: Only lower case alphabet letters are allowed."
-               << endl;
+          cout << "Error: Only lower case alphbet letters are allowed." << endl;
         }
       }
 
@@ -108,11 +105,11 @@ int main() {
         cout << ", ";
       }
     }
-    cout << " } is { ";
+    cout << " } is {";
     for (int i = 0; i < userIntersect.size(); i++) {
-      cout << userIntersect.at(i);
+      cout << " " << userIntersect.at(i);
       if (i < userIntersect.size() - 1) {
-        cout << ", ";
+        cout << ",";
       }
     }
     cout << " }." << endl << endl;
