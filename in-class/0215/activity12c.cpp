@@ -2,7 +2,17 @@
 #include <string>
 using namespace std;
 
-/* Missing Function*/
+string getMessage(int num1, int num2) {
+    string messageGotten;
+    if (num1 == num2) {
+        messageGotten = "Congratulations! You guessed it.\n";
+    } else if (num1 < num2) {
+        messageGotten =  "I'm sorry, your number is smaller.\n";
+    } else {
+        messageGotten = "I'm sorry, your number is larger.\n";
+    }
+    return messageGotten;
+}
 
 int main() {
   int userNum, compNum;

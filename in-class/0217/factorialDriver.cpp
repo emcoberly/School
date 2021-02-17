@@ -2,10 +2,11 @@
  *
  * Demonstration/Exercise: A factorial function
  *
- * File Name: factorial.cpp
+ * File Name: factorialDriver.cpp
  * Course:    CPTR 141
  */
 
+#include "factorialFunction.h"
 #include <cmath>
 #include <iostream>
 using namespace std;
@@ -15,15 +16,7 @@ long factorial(int n);
 
 // main program
 int main() {
-   
-    int n = 0;
-    cout << "Enter a number n: ";
-    cin >> n;
-
-    long val = factorial(n);
-    cout << n << "! = " << val << endl;
+    cout << factorial(5) << endl;
 
     return 0;
 }
-
-

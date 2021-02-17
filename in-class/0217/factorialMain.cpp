@@ -2,16 +2,14 @@
  *
  * Demonstration/Exercise: A factorial function
  *
- * File Name: factorial.cpp
+ * File Name: factorialMain.cpp
  * Course:    CPTR 141
  */
 
+#include "factorialFunction.h"
 #include <cmath>
 #include <iostream>
 using namespace std;
-
-// function definition
-long factorial(int n);
 
 // main program
 int main() {
