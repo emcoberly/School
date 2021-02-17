@@ -30,8 +30,7 @@ You should also write a short ``main()`` program to coordinate asking the user f
 Your solution to this problem must meet the following criteria.
 
 1. You must define the two functions given above and they must meet the given specifications.
-2. Your program must correctly handle any input errors.
-3. Your code **must** produce the same output as the included sample program, ``solution.o``.  Run this program several times trying different inputs to make sure you understand what the output should look like.
+2. Your code **must** produce the same output as the included sample program, ``solution.o``.  Run this program several times trying different inputs to make sure you understand what the output should look like.
 
 ## Grade Specification
 
