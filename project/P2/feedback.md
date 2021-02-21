@@ -13,7 +13,7 @@
 
 * Shows how the algorithm proceeds in some fashion: ✔
 
-* Creates a log file in which you save details of the algorithm's computation: ❌
+* ~~Creates a log file in which you save details of the algorithm's computation: ❌~~
 
 * Asks the user if they wish to perform another computation or exit the program: ✔
 
@@ -24,8 +24,8 @@
 * At least one Boolean expression: ✔
 * At least one branching statement (``if``, ``if-else``, ``if-else-if``, and/or ``switch``): ✔
 * At least one iteration statement (``while``, ``do-while``, and/or ``for``): ✔
-* Console input/output and file output using streams: /
+* Console input/output and file output using streams: ✔
 
 ---
 
-### TA GRADE: M
+### TA GRADE: E
