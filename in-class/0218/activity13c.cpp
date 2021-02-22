@@ -6,6 +6,8 @@ int Maximum(int, int);
 int Maximum(int, int, int);
 double Maximum(double, double);
 double Maximum(double, double, double);
+int Maximum(int, double, double);
+short int Maximum(short int, int, int);
 
 // Main Program
 int main() {
