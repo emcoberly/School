@@ -3,7 +3,7 @@
  * hw10: A basic dungeon crawler adventure game
  *
  * File Name: dungeonCrawl.cpp
- * Name:      ?
+ * Name:      Eddie Coberly
  * Course:    CPTR 141
  *
  */
