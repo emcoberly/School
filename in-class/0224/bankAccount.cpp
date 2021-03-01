@@ -6,6 +6,8 @@
  * Course:    CPTR 141
  */
 
+#define NDEBUG true
+#include <cassert>
 #include <iomanip>   // to control precision
 #include <iostream>  // for cin and cout
 using namespace std;
@@ -21,26 +23,26 @@ const float TAX_RATE = 0.098;
 /*--------------------------------------------------------------------
  * Prints the menu to cout, prompts for input, and returns input char
  */
-char menu();
+char menu(float balance);
 
 /*--------------------------------------------------------------------
  * Adds the given amount to the balance after subtracting a tithe
  * of 10% of the deposit amount (non-taxable)
  */
-void deposit(float amount);
+void deposit(float amount, float &balance);
 
 /*--------------------------------------------------------------------
  * Subtracts the given amount (plus possibly a 9.8% sales tax) from
  * balance if there is enough in the account.  If there is not enough
  * in the account, return false and display an error.
  */
-bool purchase(float amount, bool taxable);
+bool purchase(float amount, bool taxable, float &balance);
 
 /*--------------------------------------------------------------------
  * Adds the interest equal to the given rate times the account balance
  * to the account balance
  */
-void interest(float rate);
+void interest(float rate, float &balance);
 
 /*--------------------------------------------------------------------
  * Prompts the user for an amount (if rate==false) or a rate (if
@@ -63,7 +65,7 @@ int main() {
     // infinite loop (until X is pressed)
     while (true) {
         // display menu and get choice
-        choice = menu();
+        choice = menu(balance);
 
         // exit the loop
         if (choice == 'E')
@@ -71,17 +73,17 @@ int main() {
 
         // based on that choice...
         if (choice == 'D') {
-            deposit(getAmount(false));
+            deposit(getAmount(false),balance);
         } else if (choice == 'T') {
-            if (!purchase(getAmount(false), true))
+            if (!purchase(getAmount(false), true,  balance))
                 cout << "You do not have enough money to make this purchase!"
                      << endl;
         } else if (choice == 'N') {
-            if (!purchase(getAmount(false), false))
+            if (!purchase(getAmount(false), false,balance))
                 cout << "You do not have enough money to make this purchase!"
                      << endl;
         } else if (choice == 'I') {
-            interest(getAmount(true));
+            interest(getAmount(true),balance);
         } else {
             cout << "Invalid Entry -- Please try again." << endl;
         }
@@ -123,6 +125,7 @@ char menu() {
 }
 
 void deposit(float amount) {
+    assert (amount <= 20000.00);
     balance += 0.9 * amount;
 }
 

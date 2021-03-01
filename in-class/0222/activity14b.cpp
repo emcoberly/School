@@ -5,7 +5,7 @@ int a = 0;
 
 void myFunc(int b = 4) {
   int c = 5;
-  cout << "Value: " << /* OUTPUT 1 */;
+  cout << "Value: " << a << b << c;
 }
 
 int main() {
@@ -14,9 +14,9 @@ int main() {
     int e = 3;
     if (e < 10) {
       int f = 7;
-      cout << "Value: " << /* OUTPUT 2 */;
+      cout << "Value: " << a << d << e << f;
     }
-    cout << "Value: " << /* OUTPUT 3 */;
+    cout << "Value: " << a << d << e;
   }
-  cout << "Value: " << /* OUTPUT 4 */;
+  cout << "Value: " << a << d;
 }

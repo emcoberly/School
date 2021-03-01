@@ -41,7 +41,7 @@ int main() {
       cout << "Enter amount to withdraw $";
       cin >> value;
       if (!withdraw(value)) {
-        cout << "Insuficient Funds!" << endl;
+        cout << "Insufficient Funds!" << endl;
       }
     }
   } while (choice != 'e');

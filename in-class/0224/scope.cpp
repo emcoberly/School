@@ -7,7 +7,7 @@
  *   - Command II: cout << varOne << endl;
  * 
  * Instructions: For each experiment below, complete the following tasks.
- *   1. Without actually making the change, predice if the program will compile.
+ *   1. Without actually making the change, predict if the program will compile.
  *   2. Make the change and confirm your prediction.  If the program does compile,
  *      predict the output without actually running it.
  *   3. Finally, compile and run the program to see if your hypotheses are correct.
@@ -37,6 +37,8 @@ int main() {
   {
   
     /* POINT C */
+    char varOne = 'A';
+    cout << varOne << endl;
 
   }
 

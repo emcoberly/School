@@ -4,9 +4,9 @@ using namespace std;
 
 string str = "Global Scope";
 
-void myFunc() {
+void myFunc(string str) {
   cout << str << endl;
-  string str = "myFunc Scope";
+  str = "myFunc Scope";
   cout << str << endl;
 }
 
@@ -15,7 +15,7 @@ int main() {
   if (true) {
     cout << str << endl;
     string str = "If Scope";
-    myFunc();
+    myFunc("Parameter Scope");
     cout << str << endl;
   }
   cout << str << endl;
