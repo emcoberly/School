@@ -1,14 +1,23 @@
 #include <iostream>
 #include <string>
+#include <vector>
 using namespace std;
 
 int main() {
-  string homeworkNames[5] = {"Variables", "If-Else", "Loops", "Vectors", "Arrays"};
-  int pointsPossible[5] = {25, 35, 15, 20, 30};
-  int numStudents = 40;
+//   vector<string> homeworkNames = {"Variables", "If-Else", "Loops", "Vectors", "Arrays"};
+//   vector<int> pointsPossible = {25, 35, 15, 20, 30};
+//   int numStudents = 40;
 
-  for (int i = 0; i < 5; i++) {
-    cout << homeworkNames[i] << ": " << pointsPossible[i] << endl;
+//   for (int i = 0; i < 5; i++) {
+//     cout << homeworkNames.at(i) << ": " << pointsPossible.at(i) << endl;
+//   }
+//   cout << pointsPossible.at(5) << endl;
+
+  int tableTwo[4][4] = { {1,2,3,4}, {5,6,7,8}, {9,10,11,12}, {13,14,15,16} };
+  int row = 4;
+  int k;
+  cin >> k;
+  for (int i = 0; i < row; i++) {
+      cout << tableTwo[i][k-1] << endl;
   }
-  cout << pointsPossible[5] << endl;
 }

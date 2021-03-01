@@ -15,6 +15,11 @@ int main() {
                          {91, 92, 93, 94, 95, 96, 97, 98, 99, 100}};
 
   
-  /* ADD for LOOPS HERE */
+  for (int i = 0; i < 10; i++) {
+      for (int j = 0; j <= i; j++) {
+          cout << setw(4) << myTable[i][j];
+      }
+      cout << endl;
+  }
   
 }

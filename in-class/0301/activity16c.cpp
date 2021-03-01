@@ -2,8 +2,8 @@
 #include <iomanip>
 using namespace std;
 
-const int NUM_ROWS = 3;
-const int NUM_COLS = 3;
+const int NUM_ROWS = 4;
+const int NUM_COLS = 4;
 
 // initialize the game board to spaces
 void initBoard(char board[][NUM_COLS], int rows);
