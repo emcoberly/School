@@ -31,8 +31,9 @@ double area(double length, double width) {
 double area(double side1, double side2, double side3) {
   bool validTriangle = ((side1 + side2 > side3) | (side1 + side3 > side2) |
                         (side2 + side3 > side1));
-  double h = (side1 + side2 + side3) /
-             2; // h is for Heron's formula, used for area when only given sides
+  double h =
+      (side1 + side2 + side3) /
+      2.0; // h is for Heron's formula, used for area when only given sides
   if (side1 > 0 && side2 > 0 && side3 > 0 && validTriangle) {
     return sqrt(h * (h - side1) * (h - side2) * (h - side3));
   } else if (side1 == 0 || side2 == 0 || side3 == 0) {
