@@ -10,7 +10,6 @@
 // constant size of the board
 const int NUM_ROWS = 3;
 const int NUM_COLS = 3;
-const int SIZE = 3;
 
 /*=====================================================================================
  * FUNCTION: getWinner(grid,size)
@@ -21,4 +20,4 @@ const int SIZE = 3;
  *    - Postcondition: returns the winning character ('X' or 'O') or ' ' if no
  * winner but empty slots remain, or '-' if no winner and the board is full.
  */
-char getWinner(char[][SIZE], int theSize = SIZE);
+char getWinner(char[][NUM_ROWS], int = NUM_COLS);

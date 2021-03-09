@@ -11,7 +11,7 @@
 #include <iostream>
 using namespace std;
 
-char getWinner(int grid[][SIZE], int theSize = SIZE) {
+char getWinner(int grid[][NUM_ROWS], int theSize = NUM_COLS) {
     char winnerChar = ' ';
     for (int i = 0; i < theSize; i++) {
         if (grid[i][0] == grid[i][1] && grid[i][1] == grid[i][2]) {
