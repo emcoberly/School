@@ -20,4 +20,4 @@ const int NUM_COLS = 3;
  *    - Postcondition: returns the winning character ('X' or 'O') or ' ' if no
  * winner but empty slots remain, or '-' if no winner and the board is full.
  */
-char getWinner(char[][NUM_ROWS], int = NUM_COLS);
+char getWinner(char[][NUM_COLS], int theSize = NUM_ROWS);

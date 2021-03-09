@@ -11,4 +11,36 @@
 #include <iostream>
 using namespace std;
 
-/* IMPLEMENT YOUR FUNCTION HERE */
+char getWinner(int grid[][NUM_COLS], int theSize = NUM_ROWS) {
+    char winnerChar = ' ';
+    for (int i = 0; i < theSize; i++) {
+        if (grid[i][0] == grid[i][1] && grid[i][1] == grid[i][2]) {
+            if (grid[i][0] == 'X') {
+                winnerChar = 'X';
+            } else if (grid[i][0] == 'O') {
+                winnerChar = 'O';
+            }
+        } else if (grid[0][i] == grid [1][i] && grid[1][i] == grid[2][i]) {
+            if (grid[0][i] == 'X') {
+                winnerChar =  'X';
+            } else if (grid[i][0] == 'O') {
+                winnerChar =  'O';
+            }
+        } else if (grid[0][0] == grid [1][1] && grid[1][1] == grid[2][2]) {
+            if (grid[0][0] == 'X') {
+                winnerChar =  'X';
+            } else if (grid[0][0] == 'O') {
+                winnerChar =  'O';
+            }
+        } else if (grid[0][2] == grid [1][1] && grid[1][1] == grid[2][0]) {
+            if (grid[0][2] == 'X') {
+                winnerChar =  'X';
+            } else if (grid[0][2] == 'O') {
+                winnerChar =  'O';
+            }
+        } else {
+            winnerChar =  '-';
+        }
+    }
+    return winnerChar;
+}
