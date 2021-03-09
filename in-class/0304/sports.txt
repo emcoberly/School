@@ -8,7 +8,6 @@ lacrosse
 soccer
 badmitten
 bowling
-fortnight
 skiing
 diving
 ice hockey

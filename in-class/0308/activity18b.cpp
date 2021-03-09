@@ -37,6 +37,7 @@ int main() {
 // eventually save user input setup to the config file.
 void getSetup(int &rows, int &cols, char &charOne, char &charTwo) {
   ifstream configIn;
+  ofstream configOut;
   configIn.open("gameBoard.cfg");
   if (configIn.is_open()) {
     configIn >> rows;
@@ -49,6 +50,15 @@ void getSetup(int &rows, int &cols, char &charOne, char &charTwo) {
     input("Enter First Character: ", charOne);
     input("Enter Second Character: ", charTwo);
   }
+  configIn.close();
+  configOut.open("gameBoard.cfg");
+  if (configOut.is_open()) {
+      configOut << rows;
+      configOut << cols;
+      configOut << charOne;
+      configOut << charTwo;
+  }
+  configOut.close();
 }
 
 // other functions not central to the activity
@@ -91,7 +101,7 @@ char printMenu() {
   cout << endl
        << "Program Menu" << endl
        << "========================" << endl
-       << "  (r)enter configuration" << endl
+       << "  (r)eenter configuration" << endl
        << "  (p)rint board again" << endl
        << "  e(x)it the program" << endl
        << "Enter Choice: ";

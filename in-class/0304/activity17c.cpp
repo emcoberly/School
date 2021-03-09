@@ -9,6 +9,6 @@ int main() {
   cout << "Enter Name: ";
   cin >> name;
   for (int i = 0; i < number; i++) {
-    cout << name << endl;
+    cout << i+1 << ". " << name << endl;
   }
 }

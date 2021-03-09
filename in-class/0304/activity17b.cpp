@@ -5,11 +5,19 @@ using namespace std;
 int main() {
   ifstream fin;
   int number;
+  int sum;
 
-  fin.open("numbers.txt");
+  fin.open("numbersTwo.txt");
   do {
     fin >> number;
-    cout << "Number: " << number << endl;
-  } while( number != 6 && ! fin.eof() );
-  fin.close();
+    if( fin.fail() ) {
+        fin.clear();
+        fin.ignore(100,'\n');
+    } else {
+        cout << "Number: " << number << endl;
+        sum += number;
+    }
+  } while( number != 6 );
+  cout << "The sum is: " << sum << endl;
+  fin.close(); 
 }
