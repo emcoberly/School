@@ -23,7 +23,7 @@ char getWinner(char grid[][NUM_ROWS], int theSize) {
         } else if (grid[0][i] == grid [1][i] && grid[1][i] == grid[2][i]) {
             if (grid[0][i] == 'X') {
                 winnerChar =  'X';
-            } else if (grid[i][0] == 'O') {
+            } else if (grid[0][i] == 'O') {
                 winnerChar =  'O';
             }
         } else if (grid[0][0] == grid [1][1] && grid[1][1] == grid[2][2]) {
