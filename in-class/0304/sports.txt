@@ -1,0 +1,20 @@
+basketball
+baseball
+football
+volleyball
+tennis
+golf
+lacrosse
+soccer
+badmitten
+bowling
+fortnight
+skiing
+diving
+ice hockey
+biking
+rugby
+swimming
+sailing
+rowing
+skateboarding
