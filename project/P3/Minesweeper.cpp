@@ -471,12 +471,14 @@ void YouLose(int flags, int userRow, int userCol, int height, int width, char mi
     cout << "Number of incorrectly placed flags:\t" << flagFail << endl;
 }
 
+// Performs winning ceremony
 void YouWin(int flags) {
     cout << "\nC O N G R A T U L A T I O N S !" << endl;
     cout << "You are the Master Minesweeper!" << endl;
     cout << "Mines flagged: " << flags << endl;
 }
 
+// Loads a saved game if there is one
 void Load(bool &loadable, int &cells, int &flags, int &height, int &width, char mineBoard[][MAX_COLS], char userBoard[][MAX_COLS], int MAX_ROWS) {
     ifstream fin;
     fin.open("savegame.txt");
@@ -508,6 +510,7 @@ void Load(bool &loadable, int &cells, int &flags, int &height, int &width, char 
     fin.close();
 }
 
+// Saves game data
 void Save(int height, int width, char mineBoard[][MAX_COLS], char userBoard[][MAX_COLS], int MAX_ROWS) {
     ofstream fout;
     fout.open("savegame.txt");
@@ -531,6 +534,7 @@ void Save(int height, int width, char mineBoard[][MAX_COLS], char userBoard[][MA
     fout.close();
 }
 
+// Determines if User wants to play again
 char PlayAgain() {
     char doAgain = 'n';
     cout << "\nWould you like to play again?" << endl;
