@@ -64,7 +64,13 @@ int main() {
         } while (!loadableFile);
 
         PrintGameboard(boardHeight, boardWidth, displayBoard);
-        cout << "You have " << numFlags << " flags remaining." << endl;
+
+        cout << "You have " << numFlags << " flag";
+        if (numFlags != 1) {
+            cout << "s";
+        }
+        cout << " remaining." << endl;
+        
         while (cellsRemaining > 0) {
             userTurn = ClickFlagSaveQuit(numFlags);
             if (userTurn == 'q') {
@@ -91,7 +97,12 @@ int main() {
 
             cout << endl;
             PrintGameboard(boardHeight, boardWidth, displayBoard);
-            cout << "You have " << numFlags << " flags remaining." << endl;
+
+            cout << "You have " << numFlags << " flag";
+            if (numFlags != 1) {
+                cout << "s";
+            }
+            cout << " remaining." << endl;
         }
         if (cellsRemaining == 0) {
             YouWin(boardHeight * boardWidth / 8);
@@ -262,22 +273,6 @@ void MinesArray(int height, int width, int &flags, char mineBoard[][MAX_COLS], i
             }
         }
     }
-
-    // Builds 'hidden' gameboard and exports to a file
-    ofstream ofMine;
-    ofMine.open("MineBoard.txt");
-    if (!ofMine.is_open()) {
-        cout << "ERROR. Could not load game." << endl;
-        exit(0);
-    } else {
-        for (int i = 0; i < height; i++) {
-            for (int j = 0; j < width; j++) {
-                ofMine << "|" << mineBoard[i][j];
-            }
-            ofMine << "|" << endl;
-        }
-    }
-    ofMine.close();
 }
 
 void BlankArray(int height, int width, char userBoard[][MAX_COLS], int MAX_ROWS) {
@@ -313,11 +308,11 @@ char ClickFlagSaveQuit(int flags) {
     char choice;
     bool validInput = false;
 
-    cout << "\nWould you like to (c)lick";
+    cout << "\nWould you like to (c)lick, ";
     if (flags > 0) {
-        cout << ", (f)lag,"; // If User is out of flags, this won't show
+        cout << "(f)lag, "; // If User is out of flags, this won't show
     }
-    cout << " (s)ave game and quit, or (q)uit without saving? -> ";
+    cout << "(s)ave game and quit, or (q)uit without saving? -> ";
 
     do {
         cin >> choice;
@@ -477,7 +472,8 @@ void YouLose(int flags, int userRow, int userCol, int height, int width, char mi
 }
 
 void YouWin(int flags) {
-    cout << "Congratulations! You are the Master Minesweeper!" << endl;
+    cout << "\nC O N G R A T U L A T I O N S !" << endl;
+    cout << "You are the Master Minesweeper!" << endl;
     cout << "Mines flagged: " << flags << endl;
 }
 
