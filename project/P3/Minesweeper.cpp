@@ -21,67 +21,83 @@ char ClickFlagSaveQuit(int flags);
 void GetMove(int height, int width, int &userRow, int &userCol, char userBoard[][MAX_COLS], int = MAX_ROWS);
 void CheckMove(bool &gotMined, int userRow, int userCol, int height, int width, char mineBoard[][MAX_COLS], char userBoard[][MAX_COLS], int = MAX_ROWS);
 int CellsRemaining(int height, int width, char userBoard[][MAX_COLS], int = MAX_ROWS);
-void YouLose(int userRow, int userCol, int height, int width, char mineBoard[][MAX_COLS], char userBoard[][MAX_COLS], int = MAX_ROWS);
+void YouLose(int flags, int userRow, int userCol, int height, int width, char mineBoard[][MAX_COLS], char userBoard[][MAX_COLS], int = MAX_ROWS);
+void YouWin(int flags);
 
-void Load(int height, int width, char mineBoard[][MAX_COLS], char userBoard[][MAX_COLS], int = MAX_ROWS);
+void Load(bool &loadable, int &cells, int &flags, int &height, int &width, char mineBoard[][MAX_COLS], char userBoard[][MAX_COLS], int = MAX_ROWS);
 void Save(int height, int width, char mineBoard[][MAX_COLS], char userBoard[][MAX_COLS], int = MAX_ROWS);
+
+char PlayAgain();
 
 int main() {
 
-    // Introduce game and generate seed
+    char doAgain = 'n';
     Introduction();
-    srand(time(0));
 
-    // Define variables
-    char startGame = NewOrLoad();
-    char userTurn;
-    bool clickedMine = false;
+    do {
+        // Generate seed
+        srand(time(0));
 
-    int boardHeight = 0, boardWidth = 0;
-    char mineBoard[MAX_ROWS][MAX_COLS];
-    int userRow = 0, userCol = 0;
-    char displayBoard[MAX_ROWS][MAX_COLS];
-    int numFlags = 0;
-    int cellsRemaining = 0;
+        // Define variables
+        char userTurn;
+        bool clickedMine = false;
+        bool loadableFile = true;
 
-    // Run other functions
-    if (startGame == 'n') {
-        BoardSize(boardHeight,boardWidth);
-        MinesArray(boardHeight, boardWidth, numFlags, mineBoard);
-        BlankArray(boardHeight, boardWidth, displayBoard);
-        cellsRemaining = boardHeight * boardWidth;
-    } else {
-        Load(boardHeight, boardWidth, mineBoard, displayBoard);
-    }
-    PrintGameboard(boardHeight, boardWidth, displayBoard);
-    while (cellsRemaining > 0) {
-        userTurn = ClickFlagSaveQuit(numFlags);
-        if (userTurn == 'q') {
-            cout << "Thank you for playing!" << endl;
-            return 0;
-        }
-        if (userTurn == 's') {
-            Save(boardHeight, boardWidth, mineBoard, displayBoard);
-            cout << "See you next time!" << endl;
-            return 0;
-        }
-        GetMove(boardHeight, boardWidth, userRow, userCol, displayBoard);
-        if (userTurn == 'c') {
-            CheckMove(clickedMine, userRow, userCol, boardHeight, boardWidth, mineBoard, displayBoard);
-            if (clickedMine) {
-                YouLose(userRow, userCol, boardHeight, boardWidth, mineBoard, displayBoard);
-                break;
+        int boardHeight = 0, boardWidth = 0;
+        char mineBoard[MAX_ROWS][MAX_COLS];
+        int userRow = 0, userCol = 0;
+        char displayBoard[MAX_ROWS][MAX_COLS];
+        int numFlags = 0;
+        int cellsRemaining = 0;
+
+        // Determine if there is a file to load
+        do {
+            char startGame = NewOrLoad();
+            if (startGame == 'n') {
+                BoardSize(boardHeight,boardWidth);
+                MinesArray(boardHeight, boardWidth, numFlags, mineBoard);
+                BlankArray(boardHeight, boardWidth, displayBoard);
+                cellsRemaining = boardHeight * boardWidth;
+            } else {
+                Load(loadableFile, cellsRemaining, numFlags, boardHeight, boardWidth, mineBoard, displayBoard);
             }
-        } else {
-            displayBoard[userRow][userCol] = 'F';
-            numFlags -= 1;
-        }
-        cellsRemaining = CellsRemaining(boardHeight, boardWidth, displayBoard);
+        } while (!loadableFile);
 
-        cout << endl;
         PrintGameboard(boardHeight, boardWidth, displayBoard);
         cout << "You have " << numFlags << " flags remaining." << endl;
-    }
+        while (cellsRemaining > 0) {
+            userTurn = ClickFlagSaveQuit(numFlags);
+            if (userTurn == 'q') {
+                cout << "Thank you for playing!" << endl;
+                return 0;
+            }
+            if (userTurn == 's') {
+                Save(boardHeight, boardWidth, mineBoard, displayBoard);
+                cout << "See you next time!" << endl;
+                return 0;
+            }
+            GetMove(boardHeight, boardWidth, userRow, userCol, displayBoard);
+            if (userTurn == 'c') {
+                CheckMove(clickedMine, userRow, userCol, boardHeight, boardWidth, mineBoard, displayBoard);
+                if (clickedMine) {
+                    YouLose(numFlags, userRow, userCol, boardHeight, boardWidth, mineBoard, displayBoard);
+                    break;
+                }
+            } else {
+                displayBoard[userRow][userCol] = 'F';
+                numFlags -= 1;
+            }
+            cellsRemaining = CellsRemaining(boardHeight, boardWidth, displayBoard);
+
+            cout << endl;
+            PrintGameboard(boardHeight, boardWidth, displayBoard);
+            cout << "You have " << numFlags << " flags remaining." << endl;
+        }
+        if (cellsRemaining == 0) {
+            YouWin(boardHeight * boardWidth / 8);
+        }
+        doAgain = PlayAgain();
+    } while (doAgain == 'y');
 
     return 0;
 }
@@ -95,13 +111,13 @@ void Introduction() {
     cout << "- Be sure you place your flags carefully. Once you place one, you can't get it back!" << endl;
     cout << "  + Run out of flags, and you will have to watch yourself click a mine..." << endl;
     cout << "- If you successfully flag all the mines, congrats! You are the Master Minesweeper!" << endl << endl;
-    cout << "So, without further ado, let's get started." << endl << endl;
+    cout << "So, without further ado, let's get started." << endl;
 }
 
 // Determines whether to load a new gameboard or open an old one
 char NewOrLoad() {
     char selection = 'n';
-    cout << "Select an action:" << endl;
+    cout << "\nSelect an action:" << endl;
     cout << "- (n)ew game" << endl;
     cout << "- (l)oad game" << endl;
     cout << "- (q)uit" << endl;
@@ -424,7 +440,7 @@ int CellsRemaining(int height, int width, char userBoard[][MAX_COLS], int MAX_RO
 }
 
 // Performs loss ceremony (displays remaining mines as 'X', tells User the number of correclty placed flags)
-void YouLose(int userRow, int userCol, int height, int width, char mineBoard[][MAX_COLS], char userBoard[][MAX_COLS], int MAX_ROWS) {
+void YouLose(int flags, int userRow, int userCol, int height, int width, char mineBoard[][MAX_COLS], char userBoard[][MAX_COLS], int MAX_ROWS) {
     
     // Loop for checking
     int mineScore = 0;
@@ -446,10 +462,10 @@ void YouLose(int userRow, int userCol, int height, int width, char mineBoard[][M
             // Tallies incorrect flags and replaces them with 'O'
             if (userBoard[i][j] == 'F' && mineBoard[i][j] != 'M') {
                 userBoard[i][j] = 'O';
-                flagFail++;
             }
         }
     }
+    flagFail = (height * width / 8) - mineScore - flags;
     
     PrintGameboard(height, width, userBoard);
 
@@ -460,19 +476,38 @@ void YouLose(int userRow, int userCol, int height, int width, char mineBoard[][M
     cout << "Number of incorrectly placed flags:\t" << flagFail << endl;
 }
 
-void Load(int height, int width, char mineBoard[][MAX_COLS], char userBoard[][MAX_COLS], int MAX_ROWS) {
+void YouWin(int flags) {
+    cout << "Congratulations! You are the Master Minesweeper!" << endl;
+    cout << "Mines flagged: " << flags << endl;
+}
+
+void Load(bool &loadable, int &cells, int &flags, int &height, int &width, char mineBoard[][MAX_COLS], char userBoard[][MAX_COLS], int MAX_ROWS) {
     ifstream fin;
     fin.open("savegame.txt");
     if (!fin.is_open()) {
         cerr << "ERROR: No save file exists." << endl;
+        loadable = false;
     } else {
+        fin >> height >> width;
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {
                 fin >> mineBoard[i][j];
                 fin >> userBoard[i][j];
+                if (mineBoard[i][j] == 'S') {
+                    mineBoard[i][j] = ' ';
+                }
+                if (userBoard[i][j] == 'S') {
+                    userBoard[i][j] = ' ';
+                }
+                if (userBoard[i][j] == 'F') {
+                    flags++;
+                }
+                if (userBoard[i][j] == '-') {
+                    cells++;
+                }
             }
-
         }
+        flags = (height * width / 8) - flags;
     }
     fin.close();
 }
@@ -483,12 +518,33 @@ void Save(int height, int width, char mineBoard[][MAX_COLS], char userBoard[][MA
     if (!fout.is_open()) {
         cerr << "ERROR: Could not save game." << endl;
     } else {
+        fout << height << " " << width << endl;
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {
-                fout << mineBoard[i][j];
-                fout << userBoard[i][j];
+                if (mineBoard[i][j] == ' ') {
+                    mineBoard[i][j] = 'S';
+                }
+                if (userBoard[i][j] == ' ') {
+                    userBoard[i][j] = 'S';
+                }
+                fout << mineBoard[i][j] << " ";
+                fout << userBoard[i][j] << endl;
             }
         }
     }
     fout.close();
+}
+
+char PlayAgain() {
+    char doAgain = 'n';
+    cout << "\nWould you like to play again?" << endl;
+    cout << "- (y)es" << endl;
+    cout << "- (Any other character to quit)" << endl;
+    cout << "-> ";
+
+    cin >> doAgain;
+    cin.ignore(1000,'\n');
+    cin.clear();
+
+    return doAgain;
 }
