@@ -113,6 +113,7 @@ int main() {
     return 0;
 }
 
+// Introduces User to gameplay and rules, plus a friendly greeting
 void Introduction() {
     cout << "Welcome to Minesweeper! This blast from the past will be sure to entertain you." << endl;
     cout << "The rules are simple: " << endl;
@@ -275,6 +276,7 @@ void MinesArray(int height, int width, int &flags, char mineBoard[][MAX_COLS], i
     }
 }
 
+// Creates the initial gameboard
 void BlankArray(int height, int width, char userBoard[][MAX_COLS], int MAX_ROWS) {
     for (int i = 0; i < height; i++) {
         for (int j = 0; j < width; j++) {
