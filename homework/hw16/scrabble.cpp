@@ -24,13 +24,14 @@ int main(int argc, char *argv[3]) {
   int wordVal = 0;
 
   if (argc != 3) {
-    cerr << "ERRROR: You must supply two file names on the command line" << endl;
+    cerr << "ERRROR: You must supply two file names on the command line"
+         << endl;
     return 1;
   }
 
   finWRD.open(argv[1]);
   if (!finWRD.is_open()) {
-    cerr << "Could not open file " << argv[1] << endl;
+    cerr << "ERROR: Could not open file " << argv[1] << " for input" << endl;
     return 1;
   }
 
@@ -42,7 +43,7 @@ int main(int argc, char *argv[3]) {
 
   foutPTS.open(argv[2]);
   if (!foutPTS.is_open()) {
-    cerr << "Could not open file " << argv[2] << endl;
+    cerr << "ERROR: Could not open file " << argv[2] << " for output" << endl;
     return 1;
   }
 
