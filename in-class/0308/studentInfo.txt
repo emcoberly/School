@@ -1,6 +1,3 @@
-Name: Manny Heinz
-Student ID: 1258946
-
-Name: Yes No
-Student ID: 1598
+Name: Bob Tomato
+Student ID: 135
 

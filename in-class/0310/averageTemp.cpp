@@ -16,9 +16,30 @@ using namespace std;
 int main() {
 
   // declare variables
+  ifstream fin;
+  string currentline;
+  string state;
+  int temp;
 
   // open the file
+  fin.open("temps.txt");
+  if(! fin.is_open()) {
+      cout << "Could not open temps.txt" << endl;
+      return 1;
+  }
 
   // read a line at a time and process it
+  while (getline(fin,currentline)) {
+      istringstream lineIn(currentline);
+      int count = 0;
+      double sum=0;
+
+      lineIn >> state;
+      while (lineIn>>temp) {
+          sum += temp;
+          count++;
+      }
+  cout << "State: " << state << ", Temp: " << (sum / count) << endl;
+  }
 
 }
