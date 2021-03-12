@@ -20,7 +20,6 @@ int main(int argc, char *argv[3]) {
   ofstream foutPTS;
   char letter;
   string word;
-  int points;
   int wordVal = 0;
 
   if (argc != 3) {
