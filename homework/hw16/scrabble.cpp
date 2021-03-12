@@ -16,9 +16,8 @@
 using namespace std;
 
 int main(int argc, char *argv[3]) {
-  ifstream finWRD, finLET;
+  ifstream finWRD, finLET, finPTS;
   ofstream foutPTS;
-  char letter;
   string word;
   int wordVal = 0;
 
@@ -46,16 +45,25 @@ int main(int argc, char *argv[3]) {
     return 1;
   }
 
+  // Load arrays for letters and points
+  char letter;
+  char letterArray[26];
+  int points;
+  int pointsArray[26];
+  for (int i = 0; i < 26; i++) {
+    finLET >> letter >> points;
+    letterArray[i] = tolower(letter);
+    pointsArray[i] = points;
+  }
+
+  // Score words and output
   while (!finWRD.eof()) {
     finWRD >> word;
+    wordVal = 0;
     for (int i = 0; i < word.size(); i++) {
-      while (!finLET.eof()) {
-        finLET >> letter;
-        if (word.at(i) == letter) {
-          finLET.ignore(1, ' ');
-          wordVal += letter;
-          finLET.clear();
-          break;
+      for (int j = 0; j < 26; j++) {
+        if (word.at(i) == letterArray[j]) {
+          wordVal += pointsArray[j];
         }
       }
     }
