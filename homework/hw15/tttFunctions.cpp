@@ -20,24 +20,25 @@ char getWinner(char grid[][NUM_ROWS], int theSize) {
       }
     }
   }
-  if (turns > 4) {
-    if (grid[1][1] == grid[0][0] && grid[1][1] == grid[2][2] ||
-        grid[1][1] == grid[0][2] && grid[1][1] == grid[2][0] ||
-        grid[1][1] == grid[1][0] && grid[1][1] == grid[1][2] ||
-        grid[1][1] == grid[0][1] && grid[1][1] == grid[2][1]) {
-      // Win passes through middle
-      return grid[1][1];
-    } else if (grid[0][0] == grid[0][1] && grid[0][0] == grid[0][2] ||
-               grid[0][0] == grid[1][0] && grid[0][0] == grid[2][0]) {
-      // Win passes through top left
-      return grid[0][0];
-    } else if (grid[2][2] == grid[2][1] && grid[2][2] == grid[2][0] ||
-               grid[2][2] == grid[1][2] && grid[2][2] == grid[0][2]) {
-      // Win passes through top right
-      return grid[2][2];
-    } else {
-      return '-';
-    }
+  if ((grid[1][1] == grid[0][0] && grid[1][1] == grid[2][2] ||
+       grid[1][1] == grid[0][2] && grid[1][1] == grid[2][0] ||
+       grid[1][1] == grid[1][0] && grid[1][1] == grid[1][2] ||
+       grid[1][1] == grid[0][1] && grid[1][1] == grid[2][1]) &&
+      grid[1][1] != ' ') {
+    // Win passes through middle and isn't three spaces
+    return grid[1][1];
+  } else if ((grid[0][0] == grid[0][1] && grid[0][0] == grid[0][2] ||
+              grid[0][0] == grid[1][0] && grid[0][0] == grid[2][0]) &&
+             grid[0][0] != ' ') {
+    // Win passes through top left and isn't three spaces
+    return grid[0][0];
+  } else if ((grid[2][2] == grid[2][1] && grid[2][2] == grid[2][0] ||
+              grid[2][2] == grid[1][2] && grid[2][2] == grid[0][2]) &&
+             grid[2][2] != ' ') {
+    // Win passes through top right and isn't three spaces
+    return grid[2][2];
+  } else if (turns == 9) {
+    return '-';
   } else {
     return ' ';
   }
