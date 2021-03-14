@@ -58,7 +58,7 @@ string getSet(const int array[], int size) {
     }
     sout << " " << array[size - 1];
   }
-  sout << " }" << endl;
+  sout << " }";
 
   return sout.str();
 }
