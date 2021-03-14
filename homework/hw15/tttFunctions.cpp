@@ -12,35 +12,33 @@
 using namespace std;
 
 char getWinner(char grid[][NUM_ROWS], int theSize) {
-  char winnerChar = ' ';
+  int turns = 0;
   for (int i = 0; i < theSize; i++) {
-    if (grid[i][0] == grid[i][1] && grid[i][1] == grid[i][2]) {
-      if (grid[i][0] == 'X') {
-        winnerChar = 'X';
-      } else if (grid[i][0] == 'O') {
-        winnerChar = 'O';
+    for (int j = 0; j < theSize; j++) {
+      if (grid[i][j] != ' ') {
+        turns++;
       }
-    } else if (grid[0][i] == grid[1][i] && grid[1][i] == grid[2][i]) {
-      if (grid[0][i] == 'X') {
-        winnerChar = 'X';
-      } else if (grid[0][i] == 'O') {
-        winnerChar = 'O';
-      }
-    } else if (grid[0][0] == grid[1][1] && grid[1][1] == grid[2][2]) {
-      if (grid[0][0] == 'X') {
-        winnerChar = 'X';
-      } else if (grid[0][0] == 'O') {
-        winnerChar = 'O';
-      }
-    } else if (grid[0][2] == grid[1][1] && grid[1][1] == grid[2][0]) {
-      if (grid[0][2] == 'X') {
-        winnerChar = 'X';
-      } else if (grid[0][2] == 'O') {
-        winnerChar = 'O';
-      }
-    } else {
-      winnerChar = '-';
     }
   }
-  return winnerChar;
+  if (turns > 4) {
+    if (grid[1][1] == grid[0][0] && grid[1][1] == grid[2][2] ||
+        grid[1][1] == grid[0][2] && grid[1][1] == grid[2][0] ||
+        grid[1][1] == grid[1][0] && grid[1][1] == grid[1][2] ||
+        grid[1][1] == grid[0][1] && grid[1][1] == grid[2][1]) {
+      // Win passes through middle
+      return grid[1][1];
+    } else if (grid[0][0] == grid[0][1] && grid[0][0] == grid[0][2] ||
+               grid[0][0] == grid[1][0] && grid[0][0] == grid[2][0]) {
+      // Win passes through top left
+      return grid[0][0];
+    } else if (grid[2][2] == grid[2][1] && grid[2][2] == grid[2][0] ||
+               grid[2][2] == grid[1][2] && grid[2][2] == grid[0][2]) {
+      // Win passes through top right
+      return grid[2][2];
+    } else {
+      return '-';
+    }
+  } else {
+    return ' ';
+  }
 }
