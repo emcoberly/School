@@ -21,7 +21,10 @@ int findMax(string userString) {
   while (sin >> userString) {
     bool trueInt = true;
     if (userString.at(userString.size() - 1) == '.') {
-      userString.erase(userString.begin() + userString.size() - 1); // Looked up erase() function from http://www.cplusplus.com/reference/string/string/erase/
+      userString.erase(
+          userString.begin() + userString.size() -
+          1); // Looked up erase() function from
+              // http://www.cplusplus.com/reference/string/string/erase/
     }
     for (int i = 0; i < userString.size(); i++) {
       if (!isdigit(userString.at(i))) {
@@ -30,7 +33,9 @@ int findMax(string userString) {
       }
     }
     if (trueInt) {
-      userNum = stoi(userString); // stoi() came from https://www.geeksforgeeks.org/converting-strings-numbers-cc/
+      userNum = stoi(
+          userString); // stoi() came from
+                       // https://www.geeksforgeeks.org/converting-strings-numbers-cc/
       inputArray.push_back(userNum);
     }
     count++;
@@ -49,7 +54,7 @@ string getSet(const int array[], int size) {
   sout << "{";
   if (size > 0) {
     for (int i = 0; i < size - 1; i++) {
-        sout << " " << array[i] << ",";
+      sout << " " << array[i] << ",";
     }
     sout << " " << array[size - 1];
   }
